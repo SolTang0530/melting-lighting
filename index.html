@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>灯具组合预览</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <svg class="brand-icon" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M10 4h12l4 15H6L10 4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            <path d="M16 19v8M10 27h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <h1>灯具组合预览</h1>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost-button" id="toggleLighting" type="button" aria-pressed="false">Lighting</button>
+          <button class="ghost-button" id="saveConfig" type="button" title="保存当前配置">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12l2 2v16H5V3Z" /><path d="M8 3v6h8V3M8 21v-7h8v7" /></svg>
+            <span>保存配置</span>
+          </button>
+          <button class="ghost-button" id="resetConfig" type="button" title="重置">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.35-5.65L4 8.7" /><path d="M4 4v4.7h4.7" /></svg>
+            <span>重置</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="workspace" aria-label="产品配置工作区">
+        <section class="preview-pane" aria-label="灯具预览">
+          <div class="preview-stage">
+            <div class="poster-type" aria-hidden="true">
+              <p>Melting<br />Pigment</p>
+              <span>冒儿听<sup>®</sup></span>
+            </div>
+            <div class="poster-caption" aria-hidden="true">
+              <span>色彩无声，智者心行</span>
+              <span>燃烧有形，观照本心</span>
+            </div>
+            <div class="lamp-wrap">
+              <div class="lamp-shadow"></div>
+              <div id="lampPreview" class="lamp-preview" aria-label="当前灯具组合预览"></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="control-pane" aria-label="配置面板">
+          <section class="panel-section">
+            <div class="swap-row swap-row-only">
+              <button class="primary-button" id="swapCaps" type="button">交换 H3 / H4</button>
+              <button class="secondary-button" id="swapRings" type="button">交换 H1 / H2</button>
+            </div>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-heading">
+              <h2>颜色</h2>
+              <span id="activeSegmentLabel">当前：H3</span>
+            </div>
+            <div class="segment-tabs" id="segmentTabs" aria-label="选择要配色的组件"></div>
+            <div class="swatch-grid" id="swatchGrid" aria-label="颜色选择"></div>
+          </section>
+
+        </aside>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
